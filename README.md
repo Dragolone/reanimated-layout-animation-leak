@@ -27,6 +27,15 @@ For call stacks of the retained allocations, add `<profileable android:shell="tr
 manifest's `<application>` and record with Perfetto heapprofd (`android.heapprofd`,
 `process_cmdline: "com.example.reanimatedleak"`, continuous dumps).
 
+## Measured (Pixel 8 emulator, API 37 arm64, Release build, value changing every 500 ms)
+
+| | Native Heap (`dumpsys meminfo`) |
+|---|---|
+| layout animations ON, 6 min | 23.8 → 41.1 MB, monotonic (≈2.9 MB/min, ≈24 KB per remount) |
+| toggled OFF, next 6 min, same process | 42.1 → 45.7 MB with GC dips (saw-tooth, bounded) |
+
+In the app this was found in (value changing every 2 s on a hidden tab) the same thing shows up as ≈1.4 MB/min for hours, on Android and iOS alike.
+
 ## Versions
 
 - react-native-reanimated 4.5.1 (also reproduced on 4.5.5)
