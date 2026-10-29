@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "ReanimatedLeakRepro",
+    "slug": "reanimated-layout-animation-leak",
+    "version": "1.0.0",
+    "platforms": ["ios", "android"],
+    "newArchEnabled": true,
+    "android": { "package": "com.example.reanimatedleak" },
+    "ios": { "bundleIdentifier": "com.example.reanimatedleak" }
+  }
+}
